@@ -38,7 +38,7 @@ def _install_modules(modules):
     :return:
     """
     print(colored(f'Installing python modules: {modules}', 'green'))
-    os.system(f'pip install -q {modules}')
+    os.system(f'pip install -q {modules} --break-system-packages')
     print(colored(f'Modules installed.', 'green'))
 
 

@@ -1,4 +1,4 @@
-FROM alpine:3.18.3
+FROM alpine:3.20.2
 
 ENV MKDOCS_VERSION=1.5.2 \
     DOCS_DIRECTORY='/mkdocs' \
@@ -23,8 +23,8 @@ RUN \
     python3-dev \
     py3-pip \
     build-base && \
-    pip install --upgrade pip && \
-    pip install mkdocs==${MKDOCS_VERSION} && \
+    pip install --upgrade pip --break-system-packages && \
+    pip install mkdocs==${MKDOCS_VERSION} --break-system-packages && \
     cd /bootstrap && pip install -e /bootstrap && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/* && \
     chmod 600 /root/.ssh/config
